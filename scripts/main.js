@@ -19,7 +19,7 @@ function renderSugerencias(arrayGifUrl) {
         /* seteo clases/atributos */
         divGif.classList.add("gif-container");
         divGifTitle.classList.add("gif-title-container");
-        Ximg.setAttribute("src", "../assets/button3.svg");
+        Ximg.setAttribute("src", "assets/button3.svg");
         //https: //giphy.com/gifs/jAYUbVXgESSti/html5
         if (element.data.title) {
             let a = element.data.title;
