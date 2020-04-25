@@ -1,0 +1,45 @@
+:root {
+    --body-background: #14043c;
+    --barra-background: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    --barra-box-shadow: 0 1px 0 0 #110038;
+    /* botones */
+    --button-background: #EE3EFE;
+    --button-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+    --buttons-text-color: #FFFFFF;
+    /* dropdown */
+    --dropdown-background: #B4B4B4;
+    --dropdown-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+    /* dropdown - opciones */
+    /* light */
+    --theme-texwrapper-light-background: #CCCCCC;
+    --theme-texwrapper-light-border: 1px solid #808080;
+    --theme-texwrapper-light-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    /*  dark  */
+    --theme-texwrapper-dark-background: #2E32FB;
+    --theme-texwrapper-dark-border: 1px solid rgba(51, 53, 143, 0.20);
+    --theme-texwrapper-dark-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+    --color-dropdown-dark: #FFFFFF;
+    /* buscar */
+    --buscar-container-background: #B4B4B4;
+    --buscar-container-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+    --buscar-sugerencias-background: #CCCCCC;
+    --buscar-sugerencias-border: 1px solid #808080;
+    --buscar-sugerencias-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    /* sugerencias */
+    --sugerencias-background: #FFFAFE;
+    --sugerencias-border: 1px solid #2E32FB;
+    --sugerencias-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
+    /* ver mas */
+    --vermas-background: #2E32FB;
+    --vermas-border: 1px solid #4C2F99;
+    --vermas-box-shadow: inset -1px -1px 0 0 #2124B3, inset 1px 1px 0 0 #FFFFFF;
+    --vermas-h5-color: #FFFFFF;
+}
+
+.logoimg .img-light {
+    display: none;
+}
+
+.arrow img {
+    filter: invert(100%);
+}

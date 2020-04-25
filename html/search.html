@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gifOS</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,500,600,700&display=swap" />
+    <link id="stylesheet" rel="stylesheet" href="styles/variables/light.css" />
+
+    <link rel="stylesheet" href="styles/main/styles_all.css" />
+
+
+    <!-- <link id="stylesheet-dark" rel="stylesheet" href="styles/dark.css"> -->
+</head>
+
+<body>
+    <header>
+        <section class="barra">
+            <h2 class="bienvenida">
+                ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+            </h2>
+        </section>
+    </header>
+
+    <section class="container">
+        <!-- MENU/BOTONES -->
+        <section class="menu">
+            <div class="logoimg">
+                <img class="arrowimg" src="../assets/arrow.svg" alt="arrow" />
+                <img class="img-light" src="../assets/gifOF_logo.png" alt="logo" />
+                <img class="img-dark" src="../assets/gifOF_logo_dark.png" alt="logodark" />
+            </div>
+
+            <div class="buttons">
+                <button class="background" id="crear">Crear Guifos</button>
+                <div class="dropdown" id="dropdown">
+
+                    <span class="background">
+                            <p>Elegir tema</p>
+                        </span>
+
+                    <span class="background arrow">
+                            <img src="../assets/dropdown.svg" alt="" />
+                        </span>
+
+                    <div class="themeslist" id="themeslist">
+                        <!-- dropdown -->
+                        <button class="theme-texwrapper" id="light">Light</button>
+                        <button class="theme-texwrapper" id="dark">Dark</button>
+                    </div>
+
+                </div>
+
+
+                <button class="no background" id="misguifos">Mis Guifos</button>
+            </div>
+        </section>
+        <!-- MENU/BOTONES -->
+
+
+        <section class="section-buscar">
+            <div class="buscar-container">
+                <div class="buscar-title">
+                    <h2>Buscar</h2>
+                </div>
+                <div class="input-container">
+                    <input id="input-buscar" type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" />
+                    <button class="search-button">
+                        <!--<img src="/_gifOS/assets/lupa.svg" alt="" style="display: none;"> -->
+                        <img src="../assets/lupa_inactive.svg" alt="" />
+                        Buscar
+
+                    </button>
+                </div>
+            </div>
+            <div class="buscar-sugerencias">
+                <button class="button-sugerencia">Perro</button>
+                <button class="button-sugerencia">Gato</button>
+                <button class="button-sugerencia">Broooo</button>
+            </div>
+        </section>
+    </section>
+    <!-- container -->
+
+    <script src=" scripts/main.js "></script>
+    <script src=" scripts/search.js "></script>
+</body>
+
+</html>

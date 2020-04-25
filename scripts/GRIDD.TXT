@@ -1,0 +1,30 @@
+let a = [1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, 2];
+
+        let nuevoArr=[];
+
+        let aux = [];
+        let aux_indices = [];
+        for (let i = 0; i < a.length; i++) {
+            const e = a[i];
+            if (sumaTotal(aux) - 4 === 0) {
+                // Completo!
+                aux.forEach(e2=>nuevoArr.push(e2));
+                aux_indices.forEach(indice => {
+                    a.splice(indice, 1);
+                })
+                i = 0;
+                aux = [];
+                aux_indices = [];
+            } else if (4-sumaTotal(aux)-e >= 0) {
+                // Entra el elemento
+                console.log(e);
+                aux.push(e);
+                aux_indices.push(i);
+            }
+        }
+
+        function sumaTotal(array){
+            let total = 0;
+            array.forEach(elemento => total+=elemento);
+            return total;
+        }
