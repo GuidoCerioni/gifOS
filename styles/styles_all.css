@@ -59,9 +59,13 @@
         align-items: center;
     }
     
+    .divlogoimg {
+        cursor: pointer;
+    }
+    
     .logoimg {
-        width: 102.6px;
-        height: 64px;
+        width: 90px;
+        height: 48px;
     }
     
     .arrowimg {
@@ -307,8 +311,6 @@
         line-height: 22px;
         text-align: left;
     }
-    
-  
     /*SUGERENCIAS*/
     
     .sugerencias-section {

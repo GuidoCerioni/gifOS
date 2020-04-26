@@ -36,6 +36,6 @@
     --vermas-h5-color: #FFFFFF;
 }
 
-.logoimg .img-dark {
+img.img-dark.logoimg {
     display: none;
 }

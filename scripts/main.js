@@ -7,6 +7,10 @@ const csslight = "styles/variables/light.css";
 
 const cssdark = "styles/variables/dark.css";
 
+/* abort fetch */
+const controller = new AbortController();
+const signal = controller.signal;
+
 
 
 /* SUGERENCIAS   */
@@ -129,16 +133,25 @@ async function getSearchResults(ammount, search, offset) {
     busquedaCont = busquedaCont + 20;
     const url = giphyApiUrl + "search?api_key=" + giphyKey + "&q=" + search + "&limit=" + ammount + "&offset=" + offset;
     let fetchh = await fetch(url);
+
     return await fetchh.json();
 
 }
+/* const controller = new AbortController();
+const signal = controller.signal;
+ */
 
 async function getSearchSugerencias(search) {
+    controller.abort();
     const url = "https://api.datamuse.com/sug?s=" + search + "&max=3";
 
-    let fetchh = await fetch(url);
+    await timeout(3000);
+    let fetchh = await fetch(url, { signal });
+
     return await fetchh.json();
+
 }
+
 
 function changetoSearch() {
     searchFlag = 1;
@@ -154,12 +167,24 @@ function changetoSearch() {
     searchQuery = inputSearch;
     getSearchResults(20, inputSearch, busquedaCont)
         .then(response => renderTendenciasandBusqueda(response))
-        /*     .catch(document.getElementById("search-change").innerHTML = "No se encontraron resultados :(");
-         */
+        .catch(document.getElementById("search-change").innerHTML = "No se encontraron resultados :(");
+
 
 }
 
 
+
+
+
+
+async function getSearchSugerencias(search) {
+    const url = "https://api.datamuse.com/sug?s=" + search + "&max=3";
+
+    let fetchh = await fetch(url);
+
+    return await fetchh.json();
+
+}
 
 function renderSugerenciasdeBusqueda(inputSearch) {
     let buttons = document.getElementsByClassName("buscar-sugerencias");
@@ -172,26 +197,18 @@ function renderSugerenciasdeBusqueda(inputSearch) {
             button.classList.add("button-sugerencia");
             buttons[0].appendChild(button);
             document.getElementsByClassName("button-sugerencia")[0].innerHTML = inputSearch;
-
-
         } else {
-
             for (let i = 0; i < response.length; i++) {
                 let button = document.createElement("button");
                 button.classList.add("button-sugerencia");
                 buttons[0].appendChild(button);
                 document.getElementsByClassName("button-sugerencia")[i].innerHTML = response[i].word;
-
-
-
-
             }
         }
     })
 }
 
 function mostrarSugerencias() {
-
     let inputSearch = document.getElementById("input-buscar-text").value;
 
     inputSearch = inputSearch.trim();
@@ -238,12 +255,14 @@ function checkStoredTheme() {
         document.getElementById("stylesheet").setAttribute("href", cssdark);
     }
 }
+document.getElementsByClassName("divlogoimg")[0]
+    .addEventListener("click", function() { changePage("index.html"); }, false);
 
 
 
-function change_page() {
-    window.location.href = "search.html";
-    checkStoredTheme();
+function changePage(html) {
+    window.location.href = html;
+
 }
 
 function onload() {
@@ -263,62 +282,3 @@ function onload() {
             changeTheme(cssdark);
         }, false);
 }
-
-
-
-
-
-
-
-let tendenciasCont = 0;
-let busquedaCont = 0;
-let searchFlag = 0;
-let searchQuery = "";
-
-onload();
-
-
-getRandom(4).then(response => {
-    renderSugerencias(response);
-});
-getTrending(20, tendenciasCont).then(response =>
-    renderTendenciasandBusqueda(response));
-
-document.getElementById("input-buscar-text")
-    .addEventListener("input", mostrarSugerencias, false);
-
-
-document.getElementById("input-buscar-text").
-addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("search-button").click();
-    }
-});
-
-/* INFINITE SCROLL */
-function getScrollTop() {
-    let scrollTop = 0;
-
-    if (document.documentElement && document.documentElement.scrollTop) {
-        scrollTop = document.documentElement.scrollTop;
-    } else if (document.body) {
-        scrollTop = document.body.scrollTop;
-    }
-    return scrollTop;
-}
-
-document.addEventListener('scroll', function() {
-    let top = getScrollTop();
-    if (document.body.scrollHeight == (top + window.innerHeight)) {
-        if (searchFlag) {
-            getSearchResults(20, searchQuery, busquedaCont).then(response =>
-                renderTendenciasandBusqueda(response));
-
-        } else {
-            getTrending(20, tendenciasCont).then(response =>
-                renderTendenciasandBusqueda(response));
-        }
-    }
-});
-/* INFINITE SCROLL */

@@ -36,8 +36,8 @@
     --vermas-h5-color: #FFFFFF;
 }
 
-.logoimg .img-light {
-    display: none;
+img.img-light.logoimg {
+    display: none !important;
 }
 
 .arrow img {
