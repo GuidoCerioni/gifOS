@@ -2,6 +2,13 @@
 const giphyKey = "jaxtYCDY3LieEnJr0ksg3CAKLFTa7THg";
 const giphyApiUrl = "https://api.giphy.com/v1/gifs/";
 
+/* CSS VARIABLES PATH */
+const csslight = "styles/variables/light.css";
+
+const cssdark = "styles/variables/dark.css";
+
+
+
 /* SUGERENCIAS   */
 
 function renderSugerencias(arrayGifUrl) {
@@ -224,9 +231,11 @@ function changeTheme(change) {
 function checkStoredTheme() {
     let change = localStorage.getItem("theme");
 
-    if (change) {
+    if (change == csslight || change == cssdark) {
         document.getElementById("stylesheet").setAttribute("href", change);
 
+    } else {
+        document.getElementById("stylesheet").setAttribute("href", cssdark);
     }
 }
 
@@ -246,12 +255,12 @@ function onload() {
 
     document.getElementById("light")
         .addEventListener("click", function() {
-            changeTheme("styles/variables/light.css");
+            changeTheme(csslight);
         }, false);
 
     document.getElementById("dark")
         .addEventListener("click", function() {
-            changeTheme("styles/variables/dark.css");
+            changeTheme(cssdark);
         }, false);
 }
 
