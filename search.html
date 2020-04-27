@@ -10,6 +10,7 @@
     <link id="stylesheet" rel="stylesheet" href="styles/variables/light.css" />
 
     <link rel="stylesheet" href="styles/styles_all.css" />
+    <link rel="stylesheet" href="styles/search.css" />
 
 </head>
 
@@ -24,9 +25,10 @@
 
     <section class="container">
         <!-- MENU/BOTONES -->
+        <img class="arrowimg" src="assets/arrow.svg" alt="arrow" />
         <section class="menu">
             <div class="divlogoimg">
-                <img class="arrowimg" src="assets/arrow.svg" alt="arrow" />
+
                 <img class="img-light logoimg" src="assets/gifOF_logo.png" alt="logo" />
                 <img class="img-dark logoimg" src="assets/gifOF_logo_dark.png" alt="logodark" />
             </div>
@@ -51,12 +53,47 @@
 
                 </div>
 
-
                 <button class="no background" id="misgifos">Mis Guifos</button>
             </div>
         </section>
         <!-- MENU/BOTONES -->
 
+        <section class="buscar-container creargifosInstrucciones">
+            <div class="buscar-title">
+                <h2>Crear guifos</h2>
+            </div>
+            <div class="div-instrucciones">
+                <img class="window-img" src="assets\window-img.png" alt="">
+                <div class="instrucciones">
+
+                    <h3>Aquí podrás crear tus propios guifos</h3>
+
+                    <br>
+                    <h4>Crear tu <i class="cursiva">guifo</i> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</h4>
+                    <h4 class="h4-instrucciones">
+                        <span class="number">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
+                        <br><span class="number">2)</span> Capturar tu momento guifo
+                        <br><span class="number">3)</span> Revisar el momento
+                        <br><span class="number">4)</span> Listo para subir y compartir!
+                        <br>¿Quieres comenzar a crear tu <i class="cursiva">guifo</i> ahora?
+                    </h4>
+                </div>
+                <div class="instrucciones-buttons">
+                    <button id="cancelar">Cancelar</button>
+                    <button id="comenzar">Comenzar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="misguifos-section">
+            <div class="subtitle">
+                <h4>Mis guifos</h4>
+            </div>
+            <div class="grid-gif" id="misguifos">
+
+            </div>
+            </div>
+        </section>
     </section>
     <!-- container -->
 

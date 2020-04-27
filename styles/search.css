@@ -1,0 +1,86 @@
+@media (max-width: 1268px) {
+    .container {
+        margin: 0px 32px !important;
+    }
+}
+
+.arrowimg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: -31px;
+    top: 46px;
+    cursor: pointer;
+}
+
+.creargifosInstrucciones {
+    max-width: 684px;
+    height: 386px;
+    margin: 0px auto;
+}
+
+.div-instrucciones {
+    padding: 30px 36px 30px 73px;
+    position: relative;
+}
+
+.instrucciones {
+    width: 518px;
+}
+
+h3 {
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.window-img {
+    position: absolute;
+    left: 24px;
+}
+
+br {
+    height: 10px;
+}
+
+.h4-instrucciones {
+    line-height: 30px;
+    margin-top: 5px;
+}
+
+.number {
+    font-weight: 700;
+}
+
+.cursiva {
+    font-weight: bold;
+}
+
+.instrucciones-buttons {
+    float: right;
+    margin-top: 24px;
+    height: 36px;
+}
+
+.instrucciones-buttons button {
+    cursor: pointer;
+    height: 100%;
+    margin-left: 16px;
+    width: 144px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+button#cancelar {
+    background-color: var(--theme-texwrapper-light-background);
+}
+
+button#comenzar {
+    background-color: var(--button-background);
+    color: var(--buttons-text-color);
+}
+
+.misguifos-section {
+    margin-top: 150px;
+}
