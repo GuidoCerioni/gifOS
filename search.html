@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>gifOS</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gifOS</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,500,600,700&display=swap" />
-        <link id="stylesheet" rel="stylesheet" href="styles/variables/light.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,500,600,700&display=swap" />
+    <link id="stylesheet" rel="stylesheet" href="styles/variables/light.css" />
 
-        <link rel="stylesheet" href="styles/styles_all.css" />
-        <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/styles_all.css" />
+    <link rel="stylesheet" href="styles/search.css" />
 
-    </head>
+</head>
 
-    <body>
-        <header>
-            <section class="barra">
-                <h2 class="bienvenida">
-                    ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
-                </h2>
-            </section>
-        </header>
+<body>
+    <header>
+        <section class="barra">
+            <h2 class="bienvenida">
+                ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+            </h2>
+        </section>
+    </header>
 
-        <section class="container">
-            <!-- MENU/BOTONES -->
-            <img class="arrowimg" src="assets/arrow.svg" alt="arrow" />
-            <section class="menu">
-                <div class="divlogoimg">
+    <section class="container">
+        <!-- MENU/BOTONES -->
+        <img class="arrowimg" src="assets/arrow.svg" alt="arrow" />
+        <section class="menu">
+            <div class="divlogoimg">
 
-                    <img class="img-light logoimg" src="assets/gifOF_logo.png" alt="logo" />
-                    <img class="img-dark logoimg" src="assets/gifOF_logo_dark.png" alt="logodark" />
-                </div>
+                <img class="img-light logoimg" src="assets/gifOF_logo.png" alt="logo" />
+                <img class="img-dark logoimg" src="assets/gifOF_logo_dark.png" alt="logodark" />
+            </div>
 
-                <div class="buttons">
-                    <button class="background" id="crear">Crear Guifo</button>
-                    <div class="dropdown" id="dropdown">
+            <div class="buttons">
+                <button class="background" id="crear">Crear Guifo</button>
+                <div class="dropdown" id="dropdown">
 
-                        <span class="background">
+                    <span class="background">
                             <p>Elegir tema</p>
                         </span>
 
-                        <span class="background arrow">
+                    <span class="background arrow">
                             <img src="assets/dropdown.svg" alt="" />
                         </span>
 
-                        <div class="themeslist" id="themeslist">
-                            <!-- dropdown -->
-                            <button class="theme-texwrapper" id="light">Light</button>
-                            <button class="theme-texwrapper" id="dark">Dark</button>
-                        </div>
-
+                    <div class="themeslist" id="themeslist">
+                        <!-- dropdown -->
+                        <button class="theme-texwrapper" id="light">Light</button>
+                        <button class="theme-texwrapper" id="dark">Dark</button>
                     </div>
 
-                    <button class="no background" id="misgifos">Mis Guifos</button>
-                </div>
-            </section>
-            <!-- MENU/BOTONES -->
-
-            <section class="buscar-container creargifosInstrucciones">
-                <div class="buscar-title">
-                    <h2>Crear guifos</h2>
-                </div>
-                <div class="div-instrucciones">
-                    <img class="window-img" src="assets\window-img.png" alt="">
-                    <div class="instrucciones">
-
-                        <h3>Aquí podrás crear tus propios guifos</h3>
-
-                        <br>
-                        <h4>Crear tu <i class="cursiva">guifo</i> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</h4>
-                        <h4 class="h4-instrucciones">
-                            <span class="number">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
-                            <br><span class="number">2)</span> Capturar tu momento guifo
-                            <br><span class="number">3)</span> Revisar el momento
-                            <br><span class="number">4)</span> Listo para subir y compartir!
-                            <br>¿Quieres comenzar a crear tu <i class="cursiva">guifo</i> ahora?
-                        </h4>
-                    </div>
-                    <div class="instrucciones-buttons">
-                        <button id="cancelar">Cancelar</button>
-                        <button id="comenzar">Comenzar</button>
-                    </div>
                 </div>
 
-            </section>
-            <video id="video"></video>
-            <section class="misguifos-section">
-                <div class="subtitle">
-                    <h4>Mis guifos</h4>
-                </div>
-                <div class="grid-gif" id="misguifos">
-
-                </div>
-                </div>
-            </section>
+                <button class="no background" id="misgifos">Mis Guifos</button>
+            </div>
         </section>
-        <!-- container -->
+        <!-- MENU/BOTONES -->
 
-        <script src="scripts/main.js "></script>
-        <script src="scripts/search.js "></script>
-    </body>
+        <section class="buscar-container creargifosInstrucciones">
+            <div class="buscar-title">
+                <h2>Crear guifos</h2>
+            </div>
+            <div class="div-instrucciones">
+                <img class="window-img" src="assets\window-img.png" alt="">
+                <div class="instrucciones">
+
+                    <h3>Aquí podrás crear tus propios guifos</h3>
+
+                    <br>
+                    <h4>Crear tu <i class="cursiva">guifo</i> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</h4>
+                    <h4 class="h4-instrucciones">
+                        <span class="number">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
+                        <br><span class="number">2)</span> Capturar tu momento guifo
+                        <br><span class="number">3)</span> Revisar el momento
+                        <br><span class="number">4)</span> Listo para subir y compartir!
+                        <br>¿Quieres comenzar a crear tu <i class="cursiva">guifo</i> ahora?
+                    </h4>
+                </div>
+                <div class="instrucciones-buttons">
+                    <button id="cancelar">Cancelar</button>
+                    <button id="comenzar">Comenzar</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="misguifos-section">
+            <div class="subtitle">
+                <h4>Mis guifos</h4>
+            </div>
+            <div class="grid-gif" id="misguifos">
+
+            </div>
+            </div>
+        </section>
+    </section>
+    <!-- container -->
+
+    <script src="scripts/main.js "></script>
+    <script src="scripts/search.js "></script>
+</body>
 
 </html>
