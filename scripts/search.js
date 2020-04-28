@@ -4,16 +4,20 @@ document.getElementsByClassName("arrowimg")[0]
     .addEventListener("click", function() { changePage("index.html"); }, false);
 
 
-var video = document.getElementById('video');
-console.log(navigator.mediaDevices);
-console.log(navigator.mediaDevices.getUserMedia({ video: true }));
-
-
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
+function startVideoStream() {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        let video = document.getElementById('video');
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                //video.src = window.URL.createObjectURL(stream);
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    } else {
+        console.log("Hubo un problema al capturar el video");
+    }
 }

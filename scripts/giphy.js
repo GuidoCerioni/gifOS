@@ -29,3 +29,6 @@ async function getSearchResults(ammount, search, offset) {
     return await fetchh.json();
 
 }
+
+
+
