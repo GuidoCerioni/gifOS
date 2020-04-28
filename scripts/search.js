@@ -10,6 +10,8 @@ function startVideoStream() {
         let video = document.getElementById('video');
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
+                console.log(stream);
+
                 //video.src = window.URL.createObjectURL(stream);
                 video.srcObject = stream;
                 video.play();
