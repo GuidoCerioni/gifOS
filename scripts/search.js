@@ -5,17 +5,29 @@ document.getElementsByClassName("arrowimg")[0]
 
 
 function startVideoStream() {
-    let div = document.getElementsByClassName("instrucciones")[0];
-    div.innerHTML = "";
+    let div = document.getElementsByClassName("div-instrucciones")[0];
+    div.classList.add("width");
+    div.style.padding = "0px";
+
+    document.getElementsByClassName("window-img")[0]
+        .classList.add("noshow");
+
+    document.getElementsByClassName("instrucciones")[0]
+        .classList.add("noshow");
+
+    document.getElementById("cancelar")
+        .classList.add("noshow")
+
 
     let vid = document.createElement("video");
+    vid.classList.add("fit");
     vid.setAttribute("id", "video");
-    div.appendChild(vid);
+    let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
+    div.insertBefore(vid, comenzar);
 
-    let buttons = document.getElementsByClassName("instrucciones-buttons")[0];
-    buttons.style.display = "none";
-    let img = document.getElementsByClassName("window-img")[0];
-    img.style.display = "none";
+    let section = document.querySelector("section .buscar-container");
+    section.classList.add("fitcontent");
+
 
 
 

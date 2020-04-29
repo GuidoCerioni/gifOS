@@ -88,6 +88,24 @@ button#comenzar {
     color: var(--buttons-text-color);
 }
 
+
+/*  */
+
+.fit {
+    margin: 0px auto;
+}
+
+.width {
+    width: 100%;
+}
+
+.fitcontent {
+    width: fit-content;
+}
+
+
+/*  */
+
 .misguifos-section {
     margin-top: 150px;
 }
