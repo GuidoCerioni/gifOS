@@ -201,10 +201,14 @@ onload();
 /* sugerencias */
 getRandom(4).then(response =>
     renderSugerencias(response));
+/* sugerencias */
+
 
 /* tendencias */
 getTrending(20, tendenciasCont).then(response =>
     renderTendenciasandBusqueda(response));
+/* tendencias */
+
 
 let update = setTimeout(() => {});
 
@@ -229,10 +233,10 @@ document.getElementById("input-buscar-text")
 
 
 document.getElementById("crear")
-    .addEventListener("click", function() { changePage("search.html"); }, false);
+    .addEventListener("click", function() { changePage("crearguifo.html"); }, false);
 
 document.getElementById("misgifos")
-    .addEventListener("click", function() { changePage("search.html"); }, false);
+    .addEventListener("click", function() { changePage("crearguifo.html"); }, false);
 
 /* INFINITE SCROLL */
 function getScrollTop() {

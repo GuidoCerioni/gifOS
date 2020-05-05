@@ -3,8 +3,13 @@ onload();
 document.getElementsByClassName("arrowimg")[0]
     .addEventListener("click", function() { changePage("index.html"); }, false);
 
+function noCamera() {
+    document.getElementById
 
-function startVideoStream() {
+
+}
+
+function styleVideoStream() {
     let div = document.getElementsByClassName("div-instrucciones")[0];
     div.classList.add("width");
     div.style.padding = "0px";
@@ -16,29 +21,31 @@ function startVideoStream() {
         .classList.add("noshow");
 
     document.getElementById("cancelar")
-        .classList.add("noshow")
+        .classList.add("noshow");
+}
 
 
-    let vid = document.createElement("video");
-    vid.classList.add("fit");
-    vid.setAttribute("id", "video");
-    let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
-    div.insertBefore(vid, comenzar);
+function startVideoStream() {
+    let div = document.getElementsByClassName("div-instrucciones")[0];
+    /* styles */
+    styleVideoStream();
+
+    /* video */
+
 
     let section = document.querySelector("section .buscar-container");
     section.classList.add("fitcontent");
 
-
-
-
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Not adding `{ audio: true }` since we only want video now
-        let video = document.getElementById('video');
+
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
-                console.log(stream);
-
-                //video.src = window.URL.createObjectURL(stream);
+                let vid = document.createElement("video");
+                vid.classList.add("fit");
+                vid.setAttribute("id", "video");
+                let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
+                div.insertBefore(vid, comenzar);
+                let video = document.getElementById('video');
                 video.srcObject = stream;
                 video.play();
             })
