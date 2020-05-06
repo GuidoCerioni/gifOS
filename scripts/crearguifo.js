@@ -49,10 +49,8 @@ function startVideoStream() {
                 vid.setAttribute("id", "video");
                 let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
                 div.insertBefore(vid, comenzar);
-                let video = document.getElementById('video');
                 /*  */
-                recordVideo(stream);
-
+                let video = document.getElementById('video');
                 video.srcObject = stream;
                 video.play();
 
