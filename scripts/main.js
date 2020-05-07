@@ -21,10 +21,12 @@ function changeTheme(change) {
 function checkStoredTheme() {
     let change = localStorage.getItem("theme");
 
+
     if (change == csslight || change == cssdark) {
         document.getElementById("stylesheet").setAttribute("href", change);
 
     } else {
+
         document.getElementById("stylesheet").setAttribute("href", cssdark);
     }
 }

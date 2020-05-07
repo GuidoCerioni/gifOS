@@ -60,7 +60,7 @@ br {
     font-weight: bold;
 }
 
-.instrucciones-buttons {
+.crear-buttons {
     margin-left: auto;
     margin-right: 0;
     margin-top: 24px;
@@ -68,7 +68,7 @@ br {
     width: fit-content;
 }
 
-.instrucciones-buttons button {
+.crear-buttons button {
     cursor: pointer;
     height: 100%;
     margin-left: 16px;
@@ -79,13 +79,27 @@ br {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-button#cancelar {
+.cre button#cancelar {
     background-color: var(--theme-texwrapper-light-background);
 }
 
 button#comenzar {
     background-color: var(--button-background);
     color: var(--buttons-text-color);
+}
+
+button.capturar {
+    display: flex;
+    align-items: center;
+}
+
+.span-capturar {
+    cursor: pointer;
+    height: 100%;
+    margin-left: 16px;
+    font-size: 16px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
 
@@ -113,3 +127,5 @@ button#comenzar {
 .nocameraAlert {
     display: none;
 }
+
+.capturar {}
