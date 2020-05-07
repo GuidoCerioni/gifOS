@@ -44,3 +44,11 @@ img.img-light.logoimg {
 .arrow img {
     filter: invert(100%);
 }
+
+.camerabutton .img {
+    background: var(--button-background) url(./../../assets/camera_light.svg) center no-repeat !important;
+}
+
+.readybutton .img {
+    background: #FF6161 url(./../../assets/recording_dark.svg) center no-repeat !important;
+}

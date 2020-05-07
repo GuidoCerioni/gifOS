@@ -4,7 +4,12 @@ document.getElementsByClassName("arrowimg")[0]
     .addEventListener("click", function() { changePage("index.html"); }, false);
 
 function noCamera() {
-    document.getElementsByClassName("nocameraAlert")[0].classList.add("show");
+    document.querySelector(".nocameraAlert").classList.add("show");
+}
+
+function returntoCrear() {
+    location.reload();
+
 }
 
 function styleVideoStream() {
@@ -21,6 +26,27 @@ function styleVideoStream() {
     document.getElementById("cancelar")
         .classList.add("noshow");
 
+    document.getElementById("comenzar")
+        .classList.add("noshow");
+
+    let camerabutton = document.querySelector(".camerabutton");
+    camerabutton.classList.add("showflex");
+    camerabutton.addEventListener("click", startRecord, false);
+
+
+    let section = document.querySelector("section .buscar-container");
+    section.classList.add("fitcontent");
+
+    let titleCont = document.querySelector(".box-title-container");
+    titleCont.classList.add("flex");
+
+    document.querySelector(".box-title-container h2").innerHTML = "Un chequeo antes de empezar";
+
+    let cruzimg = document.querySelector(".box-title-container img");
+    cruzimg.classList.add("show");
+    cruzimg.addEventListener("click", returntoCrear, false)
+
+
 }
 
 
@@ -29,13 +55,14 @@ let blobb;
 
 function startRecordVideo() {
     console.log("empiezo a grabar");
+    let constraits = {
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+    }
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
-            recorder = RecordRTC(stream, {
-                type: 'gif',
-                frameRate: 1,
-                quality: 10,
-            });
+            recorder = RecordRTC(stream, constraits);
             recorder.startRecording();
         })
 }
@@ -66,17 +93,16 @@ function startVideoStream() {
 
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(function(stream) {
-                console.log(stream);
-                /* style*/
-                let section = document.querySelector("section .buscar-container");
-                section.classList.add("fitcontent");
+
+                /* creo VIDEO tag*/
                 let vid = document.createElement("video");
-                vid.classList.add("fit");
-                vid.setAttribute("id", "video");
-                let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
-                div.insertBefore(vid, comenzar);
-                /* style*/
-                let video = document.getElementById('video');
+                vid.setAttribute("id", "videostream");
+                let child = document.querySelector(".crear-buttons");
+                div.insertBefore(vid, child);
+
+                /**/
+
+                let video = document.getElementById('videostream');
                 video.srcObject = stream;
                 video.play();
 
@@ -84,7 +110,7 @@ function startVideoStream() {
             })
             .catch(error => {
                 console.log(error);
-                noCamera();
+                /* noCamera(); */
             });
     } else {
         console.log("Hubo un problema al capturar el video");

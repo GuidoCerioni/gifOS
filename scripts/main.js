@@ -33,6 +33,7 @@ function checkStoredTheme() {
 
 /* cambio el archivo html */
 function changePage(html) {
+
     window.location.href = html;
 }
 

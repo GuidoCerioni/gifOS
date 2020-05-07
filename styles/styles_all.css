@@ -15,6 +15,10 @@
         display: block !important;
     }
     
+    .showflex {
+        display: flex !important;
+    }
+    
     .noshow {
         display: none !important;
     }
@@ -225,7 +229,7 @@
         z-index: 0;
     }
     
-    .buscar-title {
+    .box-title-container {
         background-image: var(--barra-background);
         width: 100%;
         padding: 3px 0px 3px 3px;
