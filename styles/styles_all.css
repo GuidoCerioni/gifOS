@@ -350,9 +350,24 @@
         /* grid-column: 3 / span 2; */
     }
     
+    .gif-container-tendencias {
+        padding: 3px 4px 4px 4px;
+        background: var(--buscar-container-background);
+        box-shadow: var(--buscar-container-box-shadow);
+        /* width: 288px; */
+        /* height: 280px; */
+        /* grid-column: 3 / span 2; */
+    }
+    
     .gif-title-container {
         display: flex;
         justify-content: space-between;
+        padding: 3px;
+        background-image: var(--barra-background);
+    }
+    
+    .gif-title-container-tendencias {
+        display: none;
         padding: 3px;
         background-image: var(--barra-background);
     }
@@ -369,7 +384,7 @@
     
     .gif-img-container-tendencias {
         position: relative;
-        height: 283px;
+        height: 298px;
         background-image: url(../../../assets/loading-gif.gif);
         background-position: center;
         background-repeat: no-repeat;

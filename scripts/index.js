@@ -60,7 +60,7 @@ function renderTendenciasandBusqueda(arrayGifUrl) {
 
 
         /* seteo clases/atributos */
-        divGif.classList.add("gif-container");
+        divGif.classList.add("gif-container-tendencias");
 
 
         if ((element.images.downsized_large.width / element.images.downsized_large.height) > 1.59) {
@@ -70,7 +70,7 @@ function renderTendenciasandBusqueda(arrayGifUrl) {
         divGifImg.classList.add("gif-img-container-tendencias");
         Gifimg.setAttribute("src", element.images.fixed_width_downsampled.url);
         Gifimg.classList.add("gif-img");
-        divGifTitle.classList.add("gif-title-container");
+        divGifTitle.classList.add("gif-title-container-tendencias");
 
 
         if (element.title) {

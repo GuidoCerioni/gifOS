@@ -23,11 +23,34 @@ function styleVideoStream() {
 
 }
 
-function recordVideo(stream) {
-    let recorder = RecordRTC(stream, {
-        type: 'gif'
-    });
-    recorder.startRecording();
+
+let recorder;
+let blobb;
+
+function startRecordVideo() {
+    console.log("empiezo a grabar");
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            recorder = RecordRTC(stream, {
+                type: 'gif',
+                frameRate: 1,
+                quality: 10,
+            });
+            recorder.startRecording();
+        })
+}
+
+function stopRecordVideo() {
+    console.log("dejo a grabar");
+
+    recorder.stopRecording(() => {
+        blobb = recorder.getBlob();
+    })
+
+    const blobURL = URL.createObjectURL(blobb);
+    document.getElementById("videox").src = blobURL;
+
+
 }
 
 
@@ -35,13 +58,16 @@ function startVideoStream() {
     let div = document.getElementsByClassName("div-instrucciones")[0];
     /* styles */
     styleVideoStream();
+    console.log(navigator.mediaDevices);
+    console.log(navigator.mediaDevices.getUserMedia);
 
     /* video */
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(function(stream) {
-                /*  */
+                console.log(stream);
+                /* style*/
                 let section = document.querySelector("section .buscar-container");
                 section.classList.add("fitcontent");
                 let vid = document.createElement("video");
@@ -49,10 +75,11 @@ function startVideoStream() {
                 vid.setAttribute("id", "video");
                 let comenzar = document.getElementsByClassName("instrucciones-buttons")[0];
                 div.insertBefore(vid, comenzar);
-                /*  */
+                /* style*/
                 let video = document.getElementById('video');
                 video.srcObject = stream;
                 video.play();
+
 
             })
             .catch(error => {
