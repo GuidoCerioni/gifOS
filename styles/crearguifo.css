@@ -13,6 +13,14 @@
     cursor: pointer;
 }
 
+.loadingcamera {
+    height: 400px;
+    width: 600px;
+    background-image: url(../../../assets/load.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .creargifosInstrucciones {
     max-width: 684px;
     margin: 0px auto;
@@ -65,18 +73,20 @@ br {
 }
 
 video {
-    margin: 11px;
-    margin-bottom: 0px;
+    margin: 0px;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    background-image: url(../../../assets/load.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .crear-buttons {
-    margin-left: auto;
-    margin-right: 0;
-    margin-top: 24px;
-    height: fit-content;
-    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    height: 36px;
+    width: 100%;
 }
 
 .crear-buttons button {
@@ -90,7 +100,8 @@ video {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-button#comenzar {
+button#comenzar,
+button#subir {
     background-color: var(--button-background);
     color: var(--buttons-text-color);
 }
@@ -98,7 +109,7 @@ button#comenzar {
 .camerabutton {
     display: none;
     justify-content: end;
-    margin: 0px 11px 24px 0px;
+    margin: 0px;
 }
 
 .camerabutton button {
@@ -106,7 +117,7 @@ button#comenzar {
     color: var(--buttons-text-color);
 }
 
-.camerabutton.img {
+.camerabutton .img {
     width: 36px;
     background: var(--button-background) url(./../assets/camera.svg) center no-repeat;
 }
@@ -117,9 +128,9 @@ button.recording {
 }
 
 .readybutton {
-    display: flex;
+    display: none;
     justify-content: end;
-    margin: 0px 11px 24px 0px;
+    margin: 0px;
 }
 
 .readybutton button {
@@ -132,6 +143,10 @@ button.recording {
 .readybutton .img {
     background: #FF6161 url(./../assets/recording.svg) center no-repeat;
     width: 36px;
+}
+
+.twobuttonsfinal {
+    display: none;
 }
 
 
@@ -148,11 +163,28 @@ button.recording {
     justify-content: space-between;
 }
 
+.timer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+.timer label {
+    font-size: 17px;
+    font-weight: 500;
+}
+
 
 /*  */
 
-.width {
+.whenrecording {
     width: 100%;
+    padding: 12px;
 }
 
 .fitcontent {

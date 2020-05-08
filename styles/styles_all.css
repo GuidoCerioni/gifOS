@@ -221,7 +221,7 @@
         position: relative;
     }
     
-    .buscar-container {
+    .box-container {
         background: var(--buscar-container-background);
         box-shadow: var(--buscar-container-box-shadow);
         padding: 3px;

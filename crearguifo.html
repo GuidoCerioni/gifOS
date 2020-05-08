@@ -59,7 +59,7 @@
             </section>
             <!-- MENU/BOTONES -->
 
-            <section class="buscar-container creargifosInstrucciones">
+            <section class="box-container creargifosInstrucciones">
                 <div class="box-title-container">
                     <h2>Crear guifos</h2>
                     <img src="./assets/button3.svg" alt="X">
@@ -85,17 +85,27 @@
                         </h4>
                     </div>
                     <div class="crear-buttons">
-                        <button id="cancelar">Cancelar</button>
-                        <button id="comenzar">Comenzar</button>
+                        <div class="twobuttons">
+                            <button id="cancelar">Cancelar</button>
+                            <button id="comenzar">Comenzar</button>
+                        </div>
                         <!--  -->
                         <div class="camerabutton" id="capturar">
                             <button class="capturar img" alt="cam"></button>
                             <button class="capturar">Capturar</button>
                         </div>
+                        <div class="timer">
+                            <label id="minutes">00</label>:<label id="seconds">00</label>
+                        </div>
                         <div class="readybutton" id="capturar">
                             <button class="recording img" alt="cam"></button>
                             <button class="recording">Listo</button>
                         </div>
+                        <div class="twobuttonsfinal">
+                            <button id="repetir">Repetir captura</button>
+                            <button id="subir">Subir guifo</button>
+                        </div>
+
                         <!-- <button id="stopgrabar" onclick="stopRecordVideo();">stopgrabar</button> -->
 
 
