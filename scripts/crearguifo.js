@@ -82,8 +82,9 @@ function stopRecord() {
 
 
     let videoStream = document.getElementById('videostream');
-    /* videoStream.pause(); 
-    globalStream.stop(); */
+    videoStream.classList.add("noshow");
+
+    globalStream.stop();
 
     globalStream.getTracks().forEach(track => track.stop());
 
@@ -107,22 +108,17 @@ function stopRecord() {
 }
 
 let recorder;
-let blobb;
+let blob = [];
 
 function startRecordVideo() {
     console.log("empiezo a grabar");
 
     let constraits = {
-            type: 'gif',
-            frameRate: 1,
-            quality: 10,
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+    }
 
-        }
-        /*  navigator.mediaDevices.getUserMedia({ video: true })
-             .then(function(stream) {
-                 recorder = RecordRTC(stream, constraits);
-                 recorder.startRecording();
-             }) */
     recorder = RecordRTC(globalStream, constraits);
     recorder.startRecording();
 }
@@ -172,48 +168,18 @@ function styleVideoStream() {
     cruzimg.addEventListener("click", returntoCrear, false);
     document.querySelector(".div-instrucciones").classList.add("loadingcamera");
 
+    let divv = document.createElement("div");
+    divv.classList.add("divloadingcamera");
+    let child = document.querySelector(".crear-buttons");
+    div.insertBefore(divv, child);
 
 }
 
-function startVideoStream1() {
-    let div = document.querySelector(".div-instrucciones");
-
-    /* styles */
-    styleVideoStream();
-
-    /* video */
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function(stream) {
-                globalStream = stream;
-                /* creo VIDEO tag*/
-                let vid = document.createElement("video");
-                vid.setAttribute("id", "videostream");
-                let child = document.querySelector(".crear-buttons");
-                div.insertBefore(vid, child);
-                /*style  */
-                div.classList.remove("loadingcamera");
-
-                /**/
-
-                let video = document.getElementById('videostream');
-                video.srcObject = stream;
-                video.play();
-
-
-            })
-            .catch(error => {
-                console.log(error);
-                noCamera();
-            });
-    } else {
-        console.log("Hubo un problema al capturar el video");
-    }
-}
 
 function startVideoStream() {
     let div = document.querySelector(".div-instrucciones");
+
+
 
     /* styles */
     styleVideoStream();
@@ -223,14 +189,17 @@ function startVideoStream() {
 
         function success(stream) {
             globalStream = stream;
-            /* creo VIDEO tag*/
+
+            /* append VIDEO tag*/
             let vid = document.createElement("video");
             vid.setAttribute("id", "videostream");
             let child = document.querySelector(".crear-buttons");
             div.insertBefore(vid, child);
-            /*style  */
-            div.classList.remove("loadingcamera");
 
+            /*style after stream*/
+            div.classList.remove("loadingcamera");
+            let divLoadingCamera = document.querySelector(".divloadingcamera");
+            divLoadingCamera.parentNode.removeChild(divLoadingCamera);
             /**/
 
             let video = document.getElementById('videostream');

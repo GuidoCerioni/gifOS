@@ -21,6 +21,11 @@
     background-repeat: no-repeat;
 }
 
+.divloadingcamera {
+    width: 480px;
+    height: 320px;
+}
+
 .creargifosInstrucciones {
     max-width: 684px;
     margin: 0px auto;
@@ -79,6 +84,10 @@ video {
     background-image: url(../../../assets/load.svg);
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#recordedvideo {
+    min-width: 480px;
 }
 
 .crear-buttons {
