@@ -26,6 +26,7 @@ let mygifsArraybyId;
 let ccontador;
 
 /* localStorage.clear(); */
+
 function buttonMisGuifos() {
     document.querySelector(".box-container").classList.add("noshow");
 
@@ -210,20 +211,15 @@ function postGif() {
         }).then(async response => {
 
             jsonRes = await response.json();
-            /*saveGifInLocaStorage(); //Guardo ID del GIF en localStorage
-             *changeToUploadedStyle();
-
-             *let myGifById = await getGifByID(jsonRes.data.id);
-             *loadMyGif(myGifById.data.images.downsized.url);
-
-            */
             return jsonRes;
         })
         .catch(error => console.error('Error:', error))
         .then((response) => {
+
             saveGifLocalStorage(response.data.id);
             styleUploaded();
-            console.log('Success:', response)
+            console.log('Success:', response);
+            getMyGifs(mygifsArray).then(response => renderMisGuifos(response));
         });
 
     styleUploading();

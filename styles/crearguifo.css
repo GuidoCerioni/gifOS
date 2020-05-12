@@ -16,7 +16,7 @@
 .loadingcamera {
     height: 400px;
     width: 600px;
-    background-image: url(../../../assets/load.svg);
+    background-image: url(../../../assets/load.gif);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -82,7 +82,7 @@ video {
     margin: 0px;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-    background-image: url(../../../assets/load.svg);
+    background-image: url(../../../assets/load.gif);
     background-position: center;
     background-repeat: no-repeat;
 }
