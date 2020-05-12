@@ -3,7 +3,7 @@ const giphyKey = "jaxtYCDY3LieEnJr0ksg3CAKLFTa7THg";
 const giphyApiUrl = "https://api.giphy.com/v1/gifs/";
 
 async function getTrending(ammount, offset) {
-    tendenciasCont = tendenciasCont + 20;
+    tendenciasCont += ammount;
     const url = giphyApiUrl + "trending?api_key=" + giphyKey + "&limit=" + ammount + "&offset=" + offset;
 
     let fetchh = await fetch(url);
@@ -22,13 +22,10 @@ async function getRandom(ammount) {
 }
 
 async function getSearchResults(ammount, search, offset) {
-    busquedaCont = busquedaCont + 20;
+    busquedaCont += ammount;
     const url = giphyApiUrl + "search?api_key=" + giphyKey + "&q=" + search + "&limit=" + ammount + "&offset=" + offset;
     let fetchh = await fetch(url);
 
     return await fetchh.json();
 
 }
-
-
-

@@ -84,6 +84,12 @@
                             <br>¿Quieres comenzar a crear tu <i class="cursiva">guifo</i> ahora?
                         </h4>
                     </div>
+                    <div class="uploadingGuifo">
+                        <img src="assets/globe_img.png" alt="">
+                        <h3>Estamos subiendo tu guifo...</h3>
+                        <div class="progressbar">barra</div>
+                        <p class="tiemporestante">Tiempo restante: unos segundos</p>
+                    </div>
                     <div class="crear-buttons">
                         <div class="twobuttons">
                             <button id="cancelar">Cancelar</button>
@@ -101,13 +107,19 @@
                             <button class="recording img" alt="cam"></button>
                             <button class="recording">Listo</button>
                         </div>
-                        <div class="twobuttonsfinal">
+                        <div class="twobuttons2">
                             <button id="repetir">Repetir captura</button>
                             <button id="subir">Subir guifo</button>
                         </div>
-
+                        <button id="abortPostButton">Cancelar</button>
                         <!-- <button id="stopgrabar" onclick="stopRecordVideo();">stopgrabar</button> -->
 
+                    </div>
+                    <div class="guifouploaded">
+                        <h3>Guifo creado con éxito</h3>
+                        <button id="copylink">Copiar Enlace Guifo</button>
+                        <button id="download">Descargar Guifo</button>
+                        <button id="listo">Listo</button>
 
                     </div>
                 </div>
@@ -118,8 +130,8 @@
                 <div class="subtitle">
                     <h4>Mis guifos</h4>
                 </div>
-                <div class="grid-gif" id="misguifos">
-                    <img id="videox">
+                <div class="grid-gif-tendencias" id="misguifos">
+
                 </div>
             </section>
 

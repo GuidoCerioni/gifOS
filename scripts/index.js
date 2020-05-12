@@ -6,8 +6,9 @@ let t;
 
 /* SUGERENCIAS   */
 function renderSugerencias(arrayGifUrl) {
-
+    let contt = 0;
     arrayGifUrl.forEach(element => {
+
         const sugCont = document.getElementById("sugerenciass");
         const divGif = document.createElement("div");
         const divGifTitle = document.createElement("div");
@@ -44,6 +45,11 @@ function renderSugerencias(arrayGifUrl) {
         divGif.append(divGifTitle);
         divGif.append(divGifImg);
         sugCont.append(divGif);
+        document.getElementsByClassName("vermas")[contt]
+            .addEventListener("click", function() {
+                searchVermas(element.data.title);
+            }, false);
+        contt += 1;
     })
 }
 /* SUGERENCIAS   */
@@ -103,16 +109,19 @@ function renderTendenciasandBusqueda(arrayGifUrl) {
 
 /* BUSCAR   */
 
-/* const controller = new AbortController();
-const signal = controller.signal;
- */
+let searchSugerenciaAbortController;
 
 async function getSearchSugerencias(search) {
-    /* controller.abort(); */
 
-    const url = "https://api.datamuse.com/sug?s=" + search + "&max=4";
+    if (searchSugerenciaAbortController) {
+        searchSugerenciaAbortController.abort();
+    }
 
-    let fetchh = await fetch(url);
+    const url = "https://api.giphy.com/v1/tags/related/" + search + "?api_key=" + giphyKey;
+
+    searchSugerenciaAbortController = new AbortController();
+
+    let fetchh = await fetch(url, { signal: searchSugerenciaAbortController.signal });
 
     return await fetchh.json();
 
@@ -143,32 +152,43 @@ function searchSugerencia(button) {
     changetoSearch();
 }
 
+function searchVermas(search) {
+    document.getElementById("input-buscar-text").value = search;
+    changetoSearch();
+
+}
+
 function renderSugerenciasdeBusqueda(inputSearch) {
     let buttons = document.getElementsByClassName("buscar-sugerencias");
     buttons[0].innerHTML = "";
     let resp;
 
     getSearchSugerencias(inputSearch).then(response => {
-        console.log(response.ok + " y " + response.StatusCode);
-        resp = response;
-        if (!response) {
-            resp = [{ word: "Tendencias" }, { word: "Mas vistos" }, { word: "Más recientes" }];
-        }
+        console.log(response);
+        searchSugerenciaAbortController = null;
 
-        if (resp.length == 0) {
-            resp = ["Tendencias", "Más vistos", "Recientes"];
+        resp = response;
+
+        if (resp.data.length == 0) {
             let button = document.createElement("button");
             button.classList.add("button-sugerencia");
+            button.classList.add("noresult");
             buttons[0].appendChild(button);
             document.getElementsByClassName("button-sugerencia")[0].innerHTML = "No se encontraron resultados";
         } else {
-            for (let i = 0; i < resp.length; i++) {
-                if (resp[i].word == '') {} else {
+            if (resp.data.length > 5) {
+                resp.data = resp.data.slice(0, 4);
+            }
+            for (let i = 0; i < resp.data.length; i++) {
+                if (resp.data[i].name == '') {} else {
                     let button = document.createElement("button");
                     button.classList.add("button-sugerencia");
                     buttons[0].appendChild(button);
-                    document.getElementsByClassName("button-sugerencia")[i].innerHTML = resp[i].word;
-                    document.getElementsByClassName("button-sugerencia")[i].addEventListener("click", function() { searchSugerencia(document.getElementsByClassName("button-sugerencia")[i]) }, false);
+                    document.getElementsByClassName("button-sugerencia")[i].innerHTML = resp.data[i].name;
+                    document.getElementsByClassName("button-sugerencia")[i]
+                        .addEventListener("click", function() {
+                            searchSugerencia(document.getElementsByClassName("button-sugerencia")[i])
+                        }, false);
                 }
             }
         }
@@ -190,8 +210,24 @@ function mostrarSugerencias() {
 
     if ((inputSearch.length) > 1) {
         renderSugerenciasdeBusqueda(inputSearch.replace(/\s/g, '+'));
+        document.querySelector(".search-button img").src = "assets/lupa.svg";
+        document.querySelector(".search-button img").classList.add("active");
+
+
+        document.querySelector(".search-button").classList.add("searchButtonActive");
     } else {
-        document.getElementsByClassName("buscar-sugerencias")[0].classList.remove("toogle");
+
+        document.querySelector(".buscar-sugerencias").classList.remove("toogle");
+
+        document.querySelector(".search-button img").src = "assets/lupa_inactive.svg";
+
+        document.querySelector(".search-button img").classList.remove("active");
+
+        document.querySelector(".search-button").classList.remove("searchButtonActive");
+
+
+        document.getElementsByClassName("search-button")[0]
+            .removeEventListener("click", changetoSearch, false);
     }
 }
 /* BUSCAR   */
@@ -215,7 +251,7 @@ let update = setTimeout(() => {});
 function timeout() {
 
     clearTimeout(update);
-    update = setTimeout(mostrarSugerencias, 500);
+    update = setTimeout(mostrarSugerencias, 200);
 
 }
 

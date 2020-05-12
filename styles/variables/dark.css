@@ -41,7 +41,8 @@ img.img-light.logoimg {
     display: none !important;
 }
 
-.arrow img {
+.arrow img,
+.search-button img.active {
     filter: invert(100%);
 }
 

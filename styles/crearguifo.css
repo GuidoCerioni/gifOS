@@ -27,8 +27,9 @@
 }
 
 .creargifosInstrucciones {
-    max-width: 684px;
     margin: 0px auto;
+    width: fit-content;
+    margin-bottom: 150px;
 }
 
 .nocameraAlert {
@@ -98,7 +99,16 @@ video {
     width: 100%;
 }
 
-.crear-buttons button {
+.crear-buttons button:hover,
+.guifouploaded button:hover,
+button#listo:hover {
+    outline: 1.5px dotted #110038;
+    outline-offset: -3px;
+}
+
+.crear-buttons button,
+.guifouploaded button,
+button#listo {
     cursor: pointer;
     height: 100%;
     margin-left: 16px;
@@ -109,8 +119,26 @@ video {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
+.guifouploaded {
+    padding: 40px 30px 0px 24px;
+    display: none;
+    width: 270px;
+}
+
+.guifouploaded button {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 16px;
+    display: inline-block;
+}
+
+.guifouploaded h3 {
+    display: inline-block;
+}
+
 button#comenzar,
-button#subir {
+button#subir,
+button#listo {
     background-color: var(--button-background);
     color: var(--buttons-text-color);
 }
@@ -154,7 +182,7 @@ button.recording {
     width: 36px;
 }
 
-.twobuttonsfinal {
+.twobuttons2 {
     display: none;
 }
 
@@ -200,9 +228,50 @@ button.recording {
     width: fit-content;
 }
 
+button#abortPostButton {
+    display: none;
+}
+
+.uploadingGuifo {
+    background-color: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+}
+
+.uploadingGuifo h3 {
+    margin-bottom: 40px;
+}
+
+.uploadingGuifo img {
+    width: 30px;
+    height: 38px;
+    margin-bottom: 10px;
+}
+
+.tiemporestante {
+    margin-top: 12px;
+    font-size: 12px;
+    color: rgba(17, 0, 56, 0.64);
+    letter-spacing: 0;
+    display: inline-block;
+    line-height: 14px;
+}
+
+button#listo {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+}
+
 
 /*  */
 
 .misguifos-section {
-    margin-top: 150px;
+    justify-content: center;
 }
