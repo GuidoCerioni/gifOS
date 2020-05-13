@@ -1,7 +1,6 @@
 const giphyKey = "jaxtYCDY3LieEnJr0ksg3CAKLFTa7THg";
 const giphyApiUrl = "https://api.giphy.com/v1/gifs/";
 
-
 let timer;
 let globalStream;
 let recorder;
@@ -14,6 +13,7 @@ const signal = controller.signal;
 let gifNum;
 let mygifsArray = [];
 let mygifCont = 0;
+let gifId;
 
 const repeatButton = document.getElementById("repetir");
 const postButton = document.getElementById("subir");
@@ -25,13 +25,13 @@ let videoWidth;
 let mygifsArraybyId;
 let ccontador;
 
-/* localStorage.clear(); */
+/* localStorage.clear();*/
+
 
 function buttonMisGuifos() {
     document.querySelector(".box-container").classList.add("noshow");
-
+    document.getElementById("misgifos").classList.add("active");
 }
-
 
 function checkGifsLocalStorage() {
     let bandera = 1;
@@ -47,6 +47,7 @@ function checkGifsLocalStorage() {
     } while (bandera);
 
 }
+
 async function getMyGifs(mygifsArray) {
     let mygifsArraybyId = [];
 
@@ -61,7 +62,6 @@ async function getMyGifs(mygifsArray) {
 }
 
 function renderMisGuifos(arrayGifId) {
-    console.log(arrayGifId);
     let ccontador = 1;
     arrayGifId.forEach(element => {
         const divGif = document.createElement("div");
@@ -105,12 +105,11 @@ function renderMisGuifos(arrayGifId) {
 
 }
 
-function saveGifLocalStorage(gifID) {
+function saveGifLocalStorage(gifID) { /* creo un array de ids de mis guifos */
     let gifNum = mygifCont;
     let gifName = "gif" + gifNum;
     localStorage.setItem(gifName, gifID)
 }
-
 /* timer */
 function startTimer() {
     var minutesLabel = document.getElementById("minutes");
@@ -134,10 +133,6 @@ function startTimer() {
         }
     }
 } /* timer */
-
-
-document.getElementsByClassName("arrowimg")[0]
-    .addEventListener("click", function() { changePage("index.html"); }, false);
 
 function noCamera() {
     document.querySelector(".nocameraAlert").classList.add("show");
@@ -174,20 +169,34 @@ function abortPost() {
     window.location.reload();
 }
 
+function downloadGuifo() {
+    recorder.save("myGuifo.gif");
+}
+
+async function copylinkGuifo() {
+    let url = giphyApiUrl + gifId + "?api_key=" + giphyKey;
+    let fetchh = await fetch(url);
+    let fetched = await fetchh.json();
+
+    navigator.clipboard.writeText(fetched.data.images.original.url);
+    document.getElementById("copied").classList.add("show");
+    setTimeout(function() {
+        document.getElementById("copied").classList.remove("show");
+    }, 2000);
+}
+
+
 function styleUploaded() {
-
-    /*  */
-
-    /*  getMyGifs(mygifsArray).then(response => console.log(response)); */
-    /*  */
 
     document.getElementById('recordedvideo').classList.remove("noshow");
 
     but.classList.remove("showflex");
     but.classList.add("noshow");
 
-
     document.querySelector(".guifouploaded").classList.add("show");
+    document.getElementById("download").addEventListener("click", downloadGuifo, false);
+    document.getElementById("copylink").addEventListener("click", copylinkGuifo, false);
+
     divInstrucciones.classList.remove("noshow");
     divInstrucciones.classList.add("showflex");
     let div = document.querySelector(".uploadingGuifo");
@@ -196,9 +205,6 @@ function styleUploaded() {
     document.getElementById("abortPostButton").classList.remove("show");
 
 }
-
-
-
 
 function postGif() {
     postForm = new FormData();
@@ -215,7 +221,7 @@ function postGif() {
         })
         .catch(error => console.error('Error:', error))
         .then((response) => {
-
+            gifId = response.data.id;
             saveGifLocalStorage(response.data.id);
             styleUploaded();
             console.log('Success:', response);
@@ -224,8 +230,6 @@ function postGif() {
 
     styleUploading();
 }
-
-
 
 function styleRecording() {
     document.querySelector(".box-title-container h2").innerHTML = "Capturando tu guifo";
@@ -250,9 +254,6 @@ function styleRecording() {
     startTimer();
     but.style.justifyContent = "space-between";
 }
-
-//
-
 
 function styleStopRecord() {
     document.querySelector(".box-title-container h2").innerHTML = "Vista previa";
@@ -285,7 +286,6 @@ function styleStopRecord() {
 
 }
 
-
 function stopRecord() {
     clearInterval(timer); /* timer */
     stopRecordVideo(); /* RTC record */
@@ -297,42 +297,10 @@ function stopRecord() {
 
 }
 
-/* RTC record */
-function stopRecordVideo() {
-
-    recorder.stopRecording(() => {
-        blob = recorder.getBlob();
-    });
-
-    blobURL = URL.createObjectURL(blob);
-
-    globalStream.stop(); /* apaga la cámara */
-    console.log("Camera off");
-}
-
-function startRecordVideo() {
-    console.log("empiezo a grabar");
-
-    let constraits = {
-        type: 'gif',
-        frameRate: 1,
-        quality: 10,
-    }
-
-    recorder = RecordRTC(globalStream, constraits);
-    recorder.startRecording();
-}
-/* RTC record */
-
-
-
-
-
 function startRecord() {
     styleRecording();
     startRecordVideo();
 }
-
 
 function repeatRecord() {
 
@@ -440,6 +408,36 @@ function startVideoStream() {
     }
 }
 
+/* RTC record */
+function stopRecordVideo() {
+
+    recorder.stopRecording(() => {
+        blob = recorder.getBlob();
+    });
+
+    blobURL = URL.createObjectURL(blob);
+
+    globalStream.stop(); /* apaga la cámara */
+    console.log("Camera off");
+}
+
+function startRecordVideo() {
+    console.log("empiezo a grabar");
+
+    let constraits = {
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+    }
+
+    recorder = RecordRTC(globalStream, constraits);
+    recorder.startRecording();
+}
+/* RTC record */
+
+document.getElementsByClassName("arrowimg")[0]
+    .addEventListener("click", function() { changePage("index.html"); }, false);
+
 document.getElementById("comenzar")
     .addEventListener("click", startVideoStream, false);
 
@@ -447,10 +445,19 @@ document.getElementById("misgifos")
     .addEventListener("click", buttonMisGuifos, false);
 
 document.getElementById("crear")
-    .addEventListener("click", function() { location.reload(); }, false);
+    .addEventListener("click", function() {
+        location.reload();
+        document.getElementById("crear").classList.add("active");
+    }, false);
+document.getElementById("listo")
+    .addEventListener("click", function() {
+        location.reload();
+
+    }, false);
 
 
 document.querySelector(".box-container").classList.remove("noshow");
+
 onload();
 checkGifsLocalStorage();
 getMyGifs(mygifsArray).then(response => renderMisGuifos(response));

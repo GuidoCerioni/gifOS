@@ -110,8 +110,21 @@
     }
     
     .background:hover,
+    .dropdown:hover,
+    .button-sugerencia:hover,
+    .vermas:hover,
+    .gif-container-tendencias:hover,
+    .search-button.searchButtonActive:hover {
+        outline: 1.5px dotted #110038;
+        outline-offset: -3px;
+    }
+    
     .background:active,
-    .dropdown:hover {
+    .dropdown:active,
+    .button-sugerencia:active,
+    .vermas:active,
+    .gif-container-tendencias:active,
+    .search-button.searchButtonActive:active {
         outline: 1.5px dotted #110038;
         outline-offset: -3px;
     }
@@ -125,6 +138,7 @@
     
     .buttons #crear {
         margin-right: 16px;
+        padding: 0px 35px;
     }
     
     .arrow {
@@ -198,10 +212,10 @@
     
     .buttons .no {
         background-color: rgba(0, 0, 0, 0);
-        margin: 0px 0px 0px 16px;
-        height: 16px;
+        margin: 0px 0px 0px 12px;
+        height: 24px;
         border: 0px;
-        padding: 0px;
+        padding: 4px;
     }
     
     .buttons p {
@@ -406,10 +420,6 @@
         background-image: var(--barra-background);
     }
     
-    button:focus {
-        outline: 0;
-    }
-    
     .gif-title-container-tendencias {
         display: none;
         padding: 3px;
@@ -420,11 +430,8 @@
         left: 4px;
     }
     
-    .gif-container-tendencias:hover,
-    .search-button:hover,
-    .vermas:hover {
-        outline: 1.5px dotted #110038;
-        outline-offset: -4px;
+    .button-sugerencia:hover {
+        background-color: var(--buscar-sugerencias-background-hover);
     }
     
     .gif-container-tendencias:hover .gif-title-container-tendencias {

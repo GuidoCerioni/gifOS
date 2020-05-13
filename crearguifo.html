@@ -39,7 +39,7 @@
                     <div class="dropdown" id="dropdown">
 
                         <span class="background">
-                            <p>Elegir tema</p>
+                            Elegir tema
                         </span>
 
                         <span class="background arrow">
@@ -48,8 +48,8 @@
 
                         <div class="themeslist" id="themeslist">
                             <!-- dropdown -->
-                            <button class="theme-texwrapper" id="light">Light</button>
-                            <button class="theme-texwrapper" id="dark">Dark</button>
+                            <button class="theme-texwrapper" id="light">Day</button>
+                            <button class="theme-texwrapper" id="dark">Night</button>
                         </div>
 
                     </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="div-instrucciones">
 
-                    <img class="window-img" src="assets\window-img.png" alt="">
+                    <img class="window-img" src="assets/window-img.png" alt="">
                     <div class="instrucciones">
 
                         <h3>Aquí podrás crear tus propios guifos</h3>
@@ -87,7 +87,7 @@
                     <div class="uploadingGuifo">
                         <img src="assets/globe_img.png" alt="">
                         <h3>Estamos subiendo tu guifo...</h3>
-                        <div class="progressbar">barra</div>
+                        <div class="progressbar"><img src="./assets/bar.svg" alt=""></div>
                         <p class="tiemporestante">Tiempo restante: unos segundos</p>
                     </div>
                     <div class="crear-buttons">
@@ -96,15 +96,15 @@
                             <button id="comenzar">Comenzar</button>
                         </div>
                         <!--  -->
-                        <div class="camerabutton" id="capturar">
-                            <button class="capturar img" alt="cam"></button>
+                        <div class="camerabutton">
+                            <button class="capturar img"></button>
                             <button class="capturar">Capturar</button>
                         </div>
                         <div class="timer">
                             <label>00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
                         </div>
-                        <div class="readybutton" id="capturar">
-                            <button class="recording img" alt="cam"></button>
+                        <div class="readybutton">
+                            <button class="recording img"></button>
                             <button class="recording">Listo</button>
                         </div>
                         <div class="twobuttons2">
@@ -117,9 +117,11 @@
                     </div>
                     <div class="guifouploaded">
                         <h3>Guifo creado con éxito</h3>
-                        <button id="copylink">Copiar Enlace Guifo</button>
                         <button id="download">Descargar Guifo</button>
+                        <button id="copylink">Copiar Enlace Guifo</button>
+
                         <button id="listo">Listo</button>
+                        <h3 id="copied">Enlace copiado</h3>
 
                     </div>
                 </div>
@@ -134,8 +136,6 @@
 
                 </div>
             </section>
-
-
 
         </section>
         <!-- container -->

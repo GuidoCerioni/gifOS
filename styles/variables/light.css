@@ -23,6 +23,7 @@
     --buscar-container-background: #E6E6E6;
     --buscar-container-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
     --buscar-sugerencias-background: #F0F0F0;
+    --buscar-sugerencias-background-hover: rgb(219, 218, 218);
     --buscar-sugerencias-border: 1px solid #808080;
     --buscar-sugerencias-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
     /* sugerencias */
