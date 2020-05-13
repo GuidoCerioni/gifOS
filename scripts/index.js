@@ -6,8 +6,8 @@ let t;
 
 /* SUGERENCIAS   */
 function renderSugerencias(arrayGifUrl) {
-    let contt = 0;
-    arrayGifUrl.forEach(element => {
+    for (let i = 0; i < arrayGifUrl.length; i++) {
+        const element = arrayGifUrl[i];
 
         const sugCont = document.getElementById("sugerenciass");
         const divGif = document.createElement("div");
@@ -21,7 +21,11 @@ function renderSugerencias(arrayGifUrl) {
         /* seteo clases/atributos */
         divGif.classList.add("gif-container");
         divGifTitle.classList.add("gif-title-container");
+
+        Ximg.classList.add("Ximg");
         Ximg.setAttribute("src", "assets/button3.svg");
+        Ximg.setAttribute("id", "X" + i);
+
         //https: //giphy.com/gifs/jAYUbVXgESSti/html5
         if (element.data.title) {
             let a = element.data.title;
@@ -45,12 +49,27 @@ function renderSugerencias(arrayGifUrl) {
         divGif.append(divGifTitle);
         divGif.append(divGifImg);
         sugCont.append(divGif);
-        document.getElementsByClassName("vermas")[contt]
+
+        document.getElementsByClassName("vermas")[i]
             .addEventListener("click", function() {
                 searchVermas(element.data.title);
             }, false);
-        contt += 1;
-    })
+
+        document.getElementsByClassName("Ximg")[i]
+
+        .addEventListener("click", function() { rando(i) }, false);
+
+
+    }
+}
+async function rando(c) {
+    let imggg = document.querySelectorAll(".gif-img-container-sugerencias .gif-img")[c];
+    imggg.setAttribute("src", "assets/loading-gif.gif");
+    let fetchh = await fetch(giphyApiUrl + "random?api_key=" + giphyKey);
+    let fetched = await fetchh.json();
+    imggg.setAttribute("src", fetched.data.images.fixed_width_downsampled.url);
+
+
 }
 /* SUGERENCIAS   */
 
@@ -89,9 +108,6 @@ function renderTendenciasandBusqueda(arrayGifUrl) {
         } else {
             h2Title.innerHTML = "Animated GIF"
         }
-
-
-
 
         /* agrego hijos */
         divGifImg.append(Gifimg);

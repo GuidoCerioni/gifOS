@@ -136,6 +136,7 @@ function startTimer() {
 
 function noCamera() {
     document.querySelector(".nocameraAlert").classList.add("show");
+    but.classList.add('noshow')
 }
 
 
