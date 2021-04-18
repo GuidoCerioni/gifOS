@@ -16,4 +16,5 @@ All GIFs are from the Giphy [API](https://developers.giphy.com/).
 - Light/dark theme.
 
 ### Live demo
+<a href="https://GuidoCerioni.github.io/gifOS" target="_blank">https://GuidoCerioni.github.io/gifOS</a>
 https://GuidoCerioni.github.io/gifOS
